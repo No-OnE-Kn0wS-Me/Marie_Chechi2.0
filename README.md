@@ -1,8 +1,8 @@
 # tgbot 
 
-എന്നെ ഈ നിലയിൽ ആക്കിയതും ഇപ്പൊ നോക്കി നടത്തുന്നതും ഈ [കുരുപ്പാണ്](https://t.me/tHe_GaMeR_B0Y) എന്നെ ഉണ്ടാക്കിയത് ഈ [ഗ്രൂപ്പ്](t.me/movielinks_only) മാനേജ് ചെയ്യാൻ വേണ്ടി ആണ്. സംശയങ്ങൾക്ക്
+എന്നെ ഈ നിലയിൽ ആക്കിയതും ഇപ്പൊ നോക്കി നടത്തുന്നതും ഈ [കുരുപ്പാണ്](https://t.me/tHe_GaMeR_B0Y) എന്നെ ഉണ്ടാക്കിയത് ഈ [ഗ്രൂപ്പ്](t.me/movielinks_only) മാനേജ് ചെയ്യാൻ വേണ്ടി ആണ്. 
 
- 
+ഞാനും മേരി ചേച്ചിയുടെ പോലെ തന്നെ ഒരു പവർഫുൾ ബോട്ട് ആണ് 
 
 Alternatively, [find me on telegram](https://t.me/tHe_GaMeR_B0Y)! (Keep all support questions in the support chat, where more people can help you.)
 
