@@ -50,7 +50,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("നിങ്ങൾ ഒരു യൂസേറിനെ റെഫർ ചെയ്യുന്നതായി തോന്നുന്നില്ല.")
         return
 
     if int(user_id) in SUDO_USERS:
@@ -58,11 +58,11 @@ def gban(bot: Bot, update: Update, args: List[str]):
         return
 
     if int(user_id) in SUPPORT_USERS:
-        message.reply_text("OOOH someone's trying to gban a support user! *grabs popcorn*")
+        message.reply_text("OOOH ആരെക്കെയോ ഒരു പിന്തുണാ ഉപയോക്താവിനെ ആഗോളമായി നിരോധിക്കാൻ ശ്രമിക്കുന്നു!")
         return
 
     if user_id == bot.id:
-        message.reply_text("-_- So funny, lets gban myself why don't I? Nice try.")
+        message.reply_text("-_-ചത്താലും ഞാൻ എന്നെ തന്നെ gban ചെയ്യൂല! പകരം നിന്നെ gban ചെയ്ത മതിയോ😂 .")
         return
 
     try:
@@ -72,12 +72,12 @@ def gban(bot: Bot, update: Update, args: List[str]):
         return
 
     if user_chat.type != 'private':
-        message.reply_text("That's not a user!")
+        message.reply_text("അതൊരു യൂസർ അല്ല മിസ്റ്റർ😏!")
         return
 
     if sql.is_user_gbanned(user_id):
         if not reason:
-            message.reply_text("This user is already gbanned; I'd change the reason, but you haven't given me one...")
+            message.reply_text("ഈ ചെങ്ങായിനെ വേറെ ആരോ gban ചെയ്തതാണ്; ഇങ്ങള് എന്തേലും കാരണം തരുവാണേൽ ഞാൻ അത് മാറ്റിക്കോളാം, but you haven't given me one...")
             return
 
         old_reason = sql.update_gban_reason(user_id, user_chat.username or user_chat.first_name, reason)
