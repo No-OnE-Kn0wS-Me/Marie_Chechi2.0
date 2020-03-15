@@ -29,14 +29,14 @@ def mute(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I'm not muting myself!")
+        message.reply_text("ഞാൻ എന്റെ വായ അടക്കാൻ പോണില്ല😒!")
         return ""
 
     member = chat.get_member(int(user_id))
 
     if member:
         if is_user_admin(chat, user_id, member=member):
-            message.reply_text("Afraid I can't stop an admin from talking!")
+            message.reply_text("എനിക്ക് അഡ്മിൻസിന്റെ വായ അടപ്പിക്കാൻ പറ്റൂല😌!")
 
         elif member.can_send_messages is None or member.can_send_messages:
             bot.restrict_chat_member(chat.id, user_id, can_send_messages=False)
@@ -122,11 +122,11 @@ def temp_mute(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_admin(chat, user_id, member):
-        message.reply_text("I really wish I could mute admins...")
+        message.reply_text("എനിക്കും ആഗ്രഹം ഉണ്ട് പക്ഷെ അഡ്മിൻസിനെ എനിക്ക് mute ചെയ്യാൻ പറ്റൂല😢...")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I'm not gonna MUTE myself, are you crazy?")
+        message.reply_text("ഞാൻ എന്നെ തന്നെ mute ചെയ്യാനോ😂? നടക്കുന്ന കാര്യം വെല്ലോം പറ")
         return ""
 
     if not reason:
