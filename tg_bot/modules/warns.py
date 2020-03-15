@@ -27,7 +27,7 @@ CURRENT_WARNING_FILTER_STRING = "<b>ഈ ചാറ്റിലെ നിലവി
 # Not async
 def warn(user: User, chat: Chat, reason: str, message: Message, warner: User = None) -> str:
     if is_user_admin(chat, user.id):
-        # message.reply_text("അഡ്മിൻ ആണ്... warn ചെയ്യാൻ പറ്റില്ല!")
+        # message.reply_text("ആ മച്ചാൻ അഡ്മിൻ ആണ്... എനിക്ക് warn ചെയ്യാൻ പറ്റില്ല!")
         return ""
 
     if warner:
