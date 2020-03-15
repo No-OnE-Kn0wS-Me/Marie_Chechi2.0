@@ -18,14 +18,13 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-ഹായ് {}, എന്റെ പേര് {}! എന്നെ ഉപയോഗിക്കേണ്ടത് എങ്ങനെ ആണെന്നുള്ളതിൽ എന്തേലും സംശയം ഉണ്ടെങ്കിൽ /help കൊടുത്താൽ മതിയാകും... 
+ഹായ് {}, എന്റെ പേര് {}! എന്നെ ഗ്രൂപ്പുകൾ മാനേജ് ചെയ്യാൻ വേണ്ടിയാണ് ഉണ്ടാക്കിയത്.
 
 
-എന്നെ ഈ വിധത്തിൽ ആക്കി എടുത്തത് ഈ [കുരിപ്പാണ്](https://t.me/tHe_GaMeR_B0Y) എന്നെ ഇപ്പോൾ നോക്കി നടത്തുന്നത്  [ഇദ്ദേഹം](tg://user?id={}) ആണ് . എന്നെ നിർമിച്ചിരിക്കുന്നത് python3യിൽ 
-python-telegram-bot library ഉപയോഗിച്ചാണ്.... ഞാൻ പൂർണമായും opensource ആണ്.. എന്റെ കോഡ് നിങ്ങൾക്ക് [ഇവിടെ](https://heroku.com/deploy?template=https://github.com/salmanpdr/Marie_Chechi2.0) കാണാവുന്നതാണ്...
-എന്നെ ഉപയോഗിക്കാൻ ആവിശ്യമായ commandകൾ അറിയാൻ /help കൊടുത്താൽ മതിയാകും..
-വിവരങ്ങൾക്കായി /info  ഉപയോഗിക്കാവുന്നതാണ്...
-
+എന്നെ ഈ വിധത്തിൽ ആക്കി എടുത്തത് ഈ [കുരിപ്പാണ്](https://t.me/tHe_GaMeR_B0Y) എന്നെ ഇപ്പോൾ നോക്കി നടത്തുന്നത്  [ഇദ്ദേഹം](tg://user?id={}) ആണ് . 
+ഞൻ പൂർണ്ണമായും ഓപ്പൺ സോഴ്സ് ആണ് .[ഈ കോഡ്](https://heroku.com/deploy?template=https://github.com/salmanpdr/Marie_Chechi2.0)
+ഉപയോഗിച്ചു നിങ്ങൾക്കും ഇതു പോലെ ഒരു ബോട്ടിനെ ഉണ്ടാക്കാവുന്നതാണ്.  നിങ്ങളുടെ വിവരങ്ങൾ അറിയാൻ/info  ഉപയോഗിക്കാവുന്നതാണ്...
+കൂടുതൽ കമാന്റുകൾ അറിയാൻ /help അടിച്ചാൽ മതി.
 
 എന്റെ ചേച്ചിയായ [മേരി](http://telegram.dog/BanhammerMarie_bot) ഉപയോഗിക്കുന്നത് എല്ലായ്പ്പോഴും എളുപ്പമായിരിക്കും. മേരി ചേച്ചിക്ക് English മാത്രമേ അറിയൂ..
 
@@ -374,7 +373,7 @@ def donate(bot: Bot, update: Update):
         update.effective_message.reply_text(DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
         if OWNER_ID != 254318997 and DONATION_LINK:
-            update.effective_message.reply_text("You can also donate to the person currently running me "
+            update.effective_message.reply_text("എന്നെ ഇപ്പോൾ നോക്കി നടത്തുന്ന ആൾക്കും നിങ്ങൾക്ക് donate ചെയ്യാവുന്നതാണ്"
                                                 "[here]({})".format(DONATION_LINK),
                                                 parse_mode=ParseMode.MARKDOWN)
 
