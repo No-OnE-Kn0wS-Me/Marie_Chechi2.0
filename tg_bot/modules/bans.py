@@ -29,20 +29,20 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("നിങ്ങൾ ഒരുഭോക്താവിനെ സൂചിപ്പിക്കുന്നതായി തോന്നുന്നില്ല...")
+        message.reply_text("ആരേലും ഒരാളെ സൂചിപ്പിച്ചാൽ അല്ലെ എനിക്ക് ബൺ കൊടുക്കാൻ കഴിയൂ...")
         return ""
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("ഇങ്ങനെ ഒരാളെ എനിക്ക് കണ്ടെത്താൻ സാധിച്ചില്ല...")
+            message.reply_text("ഇങ്ങനെ ഒരാൾ ഇപ്പോൾ ജീവിച്ചിരിപ്പില്ല...")
             return ""
         else:
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("എനിക്ക് Adminsനെ ബാൻ ചെയ്യാൻ സാധിക്കില്ല സുഹൃത്തേ...")
+        message.reply_text("എനിക്ക് അഡ്മിൻസിന് ബൺ കൊടുക്കാൻ പറ്റൂല😔...")
         return ""
 
     if user_id == bot.id:
@@ -56,7 +56,7 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
           "\n<b>• ID:</b> <code>{}</code>".format(html.escape(chat.title), mention_html(user.id, user.first_name), 
                                                   mention_html(member.user.id, member.user.first_name), user_id)
 
-    reply = "{} ന് ബൺ കൊടുത്തിട്ടുണ്ട്.." .format(mention_html(member.user.id, member.user.first_name))
+    reply = "{} ന് ബൺ കൊടുത്ത്‌വിട്ടിട്ടുണ്ട്.." .format(mention_html(member.user.id, member.user.first_name))
     if reason:
         log += "\n<b>• Reason:</b> {}".format(reason)
         reply += "\n<b>Reason:</b> <i>{}</i>".format(reason)
@@ -71,13 +71,13 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text('ബാൻ ചെയ്തിട്ടുണ്ട്...!', quote=False)
+            message.reply_text('ബൺ കൊടുത്തിട്ടുണ്ട്...!', quote=False)
             return log
         else:
             LOGGER.warning(update)
             LOGGER.exception("ERROR banning user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
-            message.reply_text("എനിക്കയാളെ ബാൻ ചെയ്യാൻ സാധിക്കില്ല..")
+            message.reply_text("എനിക്കയാൾക്കു ബൺ കൊടുക്കാൻ സാധിക്കില്ല..")
 
     return ""
 
