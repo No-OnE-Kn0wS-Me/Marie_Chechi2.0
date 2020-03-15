@@ -128,11 +128,11 @@ def rban(bot: Bot, update: Update, args: List[str]):
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("I really wish I could ban admins...")
+        message.reply_text("എനിക്കും അഡ്മിൻസിനു ബണ്ണ്‌ കൊടുക്കണമെന്നുണ്ട്😞.")
         return
 
     if user_id == bot.id:
-        message.reply_text("I'm not gonna BAN myself, are you crazy?")
+        message.reply_text("ആഹ് ബെസ്റ്റ് 😂 ഞാൻ എന്നെ തന്നെ ban ചെയ്യാനോ?")
         return
 
     try:
@@ -178,7 +178,7 @@ def runban(bot: Bot, update: Update, args: List[str]):
             raise
 
     if chat.type == 'private':
-        message.reply_text("I'm sorry, but that's a private chat!")
+        message.reply_text("അതൊരു പ്രൈവറ്റ് ചാറ്റ് ആണ് ഭായ്😔!")
         return
 
     if not is_bot_admin(chat, bot.id) or not chat.get_member(bot.id).can_restrict_members:
@@ -204,7 +204,7 @@ def runban(bot: Bot, update: Update, args: List[str]):
 
     try:
         chat.unban_member(user_id)
-        message.reply_text("Yep, this user can join that chat!")
+        message.reply_text("ആഹ് ഇനി ഈ ചെങ്ങായിക്കു ഇവിടെ കയറാം!")
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
@@ -215,7 +215,7 @@ def runban(bot: Bot, update: Update, args: List[str]):
             LOGGER.warning(update)
             LOGGER.exception("ERROR unbanning user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
-            message.reply_text("Well damn, I can't unban that user.")
+            message.reply_text("കൊള്ളാം പൊളി സാനം... പക്ഷെ ഇക്ക്‌ ഓനെ unban ചെയ്യാൻ പറ്റൂല.")
 
 @run_async
 @bot_admin
@@ -229,10 +229,10 @@ def rkick(bot: Bot, update: Update, args: List[str]):
     user_id, chat_id = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("ഇങ്ങള് ആരേലും റെഫർ ചെയ്താൽ അല്ലെ എനിക്ക് എന്തേലും ചെയ്യാൻ പറ്റു.")
         return
     elif not chat_id:
-        message.reply_text("You don't seem to be referring to a chat.")
+        message.reply_text("ഇങ്ങള് ഏതേലും ചാറ്റ് റെഫർ ചെയ്താൽ അല്ലെ എനിക്ക് എന്തേലും ചെയ്യാൻ പറ്റു.")
         return
 
     try:
@@ -245,7 +245,7 @@ def rkick(bot: Bot, update: Update, args: List[str]):
             raise
 
     if chat.type == 'private':
-        message.reply_text("I'm sorry, but that's a private chat!")
+        message.reply_text("അതൊരു പ്രൈവറ്റ് ചാറ്റ് ആണ് ഭായ്😔!")
         return
 
     if not is_bot_admin(chat, bot.id) or not chat.get_member(bot.id).can_restrict_members:
@@ -262,11 +262,11 @@ def rkick(bot: Bot, update: Update, args: List[str]):
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("I really wish I could kick admins...")
+        message.reply_text("എനിക്കും അഡ്മിൻസിനെ പുറത്താക്കണം എന്നുണ്ട്😞..")
         return
 
     if user_id == bot.id:
-        message.reply_text("I'm not gonna KICK myself, are you crazy?")
+        message.reply_text("ഞാൻ എന്ത് തെറ്റു ചെയ്തിട്ട എന്നെ പുറത്താക്കുന്നേ😒?")
         return
 
     try:
@@ -312,7 +312,7 @@ def rmute(bot: Bot, update: Update, args: List[str]):
             raise
 
     if chat.type == 'private':
-        message.reply_text("I'm sorry, but that's a private chat!")
+        message.reply_text("അതൊരു പ്രൈവറ്റ് ചാറ്റ് ആണ് ഭായ്😔!")
         return
 
     if not is_bot_admin(chat, bot.id) or not chat.get_member(bot.id).can_restrict_members:
@@ -329,11 +329,11 @@ def rmute(bot: Bot, update: Update, args: List[str]):
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("I really wish I could mute admins...")
+        message.reply_text("എനിക്ക് അഡ്മിൻസിന്റെ വായ അടപ്പിക്കാൻ പറ്റൂല😔...")
         return
 
     if user_id == bot.id:
-        message.reply_text("I'm not gonna MUTE myself, are you crazy?")
+        message.reply_text("ഞാൻ എന്റെ തന്നെ വായ അടപ്പിക്കാനാ😂?")
         return
 
     try:
@@ -379,7 +379,7 @@ def runmute(bot: Bot, update: Update, args: List[str]):
             raise
 
     if chat.type == 'private':
-        message.reply_text("I'm sorry, but that's a private chat!")
+        message.reply_text("അതൊരു പ്രൈവറ്റ് ചാറ്റ് ആണ് മച്ചാനെ😔!")
         return
 
     if not is_bot_admin(chat, bot.id) or not chat.get_member(bot.id).can_restrict_members:
