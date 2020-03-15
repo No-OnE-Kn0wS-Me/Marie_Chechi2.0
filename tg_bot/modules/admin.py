@@ -37,7 +37,7 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I can't promote myself! Get an admin to do it for me.")
+        message.reply_text("സേട്ടാ! എനിക്ക് എന്നെ തന്നെ പ്രൊമോട്ട് ചെയ്യാൻ കഴിയൂല. വേറെ ആരേലും ചെയ്യേണ്ടി വരും😅.")
         return ""
 
     # set same perms as bot - bot can't assign higher perms than itself!
@@ -53,7 +53,7 @@ def promote(bot: Bot, update: Update, args: List[str]) -> str:
                           can_pin_messages=bot_member.can_pin_messages,
                           can_promote_members=bot_member.can_promote_members)
 
-    message.reply_text("സ്ഥാനക്കയറ്റം കൊടുത്തിട്ടുണ്ട്! 👍🏻")
+    message.reply_text("ആഹ് മൂപ്പർക്ക് സ്ഥാനക്കയറ്റം കൊടുത്തിട്ടുണ്ട്! 👍🏻")
     return "<b>{}:</b>" \
            "\n#PROMOTED" \
            "\n<b>Admin:</b> {}" \
@@ -83,11 +83,11 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if not user_member.status == 'administrator':
-        message.reply_text("Can't demote what wasn't promoted!")
+        message.reply_text("അയാളെ പ്രൊമോട്ട് ചെയ്താൽ അല്ലെ സെർ എനിക്ക് demote ചെയ്യാൻ പറ്റു😏!")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I can't demote myself! Get an admin to do it for me.")
+        message.reply_text("ആഹ്! ബെസ്റ്റ് ചത്താലും ഞാൻ അത് ചെയ്യൂല😐.")
         return ""
 
     try:
@@ -109,8 +109,8 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
                                           mention_html(user_member.user.id, user_member.user.first_name))
 
     except BadRequest:
-        message.reply_text("Could not demote. I might not be admin, or the admin status was appointed by another "
-                           "user, so I can't act upon them!")
+        message.reply_text("എനിക്ക് പറ്റുമെന്ന് തോന്നുന്നില്ല മച്ചാനെ!😔. ഒന്നെങ്കിൽ ഞാൻ അഡ്മിൻ ആയിരിക്കില്ല, അല്ലേൽ വേറെ ഏതേലും ചെങ്ങായി ആകും പ്രൊമോട്ട് ചെയ്തത് "
+                           "അതോണ്ട് എനിക്ക്‌ ഒന്നും ചെയ്യാൻ കഴിയൂല ")
         return ""
 
 
@@ -182,9 +182,9 @@ def invite(bot: Bot, update: Update):
             invitelink = bot.exportChatInviteLink(chat.id)
             update.effective_message.reply_text(invitelink)
         else:
-            update.effective_message.reply_text("I don't have access to the invite link, try changing my permissions!")
+            update.effective_message.reply_text("എനിക്ക് അതിനുള്ള അധികാരം ഇപ്പൊ ഇല്ല! എന്റെ പേർമിഷൻസ് ആദ്യം മാറ്റ് അപ്പൊ നോക്കാം!")
     else:
-        update.effective_message.reply_text("I can only give you invite links for supergroups and channels, sorry!")
+        update.effective_message.reply_text("എനിക്ക് സൂപ്പർ ഗ്രൂപ്പിന്റെയും ചാനലിന്റെയും ലിങ്ക് മാത്രേ തരാൻ പറ്റു സോറി😞!")
 
 
 @run_async
