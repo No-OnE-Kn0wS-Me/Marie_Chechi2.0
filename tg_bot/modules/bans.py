@@ -95,24 +95,24 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("നിങ്ങൾ ഒരു വ്യക്തിയെ സൂചിപ്പിക്കുന്നതായി തോന്നുന്നില്ല!.")
         return ""
 
     try:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user")
+            message.reply_text("എനിക്ക് ഈ യൂസേറിനെ കണ്ടെത്താൻ കഴിയുന്നില്ല")
             return ""
         else:
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("I really wish I could ban admins...")
+        message.reply_text("എനിക്ക് ആഗ്രഹം ഒക്കെ ഉണ്ട് but നടക്കൂലല്ലോ😛...")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("I'm not gonna BAN myself, are you crazy?")
+        message.reply_text("എന്നെ ബാൻ ചെയ്യാനോ..😢? ഞാൻ പാവല്ലേ...എന്തായാലും ഞാൻ ബാൻ ചെയ്യൂല എനിക്ക് ബണ്ണ് വേണ്ട😔")
         return ""
 
     if not reason:
@@ -231,7 +231,7 @@ def banme(bot: Bot, update: Update):
     chat = update.effective_chat
     user = update.effective_user
     if is_user_admin(update.effective_chat, user_id):
-        update.effective_message.reply_text("I wish I could... but you're an admin.")
+        update.effective_message.reply_text("ആഹ്.. എനിക്ക് ആഗ്രഹം ഒക്കെ ഉണ്ട് but നീ ഒരു അഡ്മിൻ അല്ലെ!.")
         return
 
     res = update.effective_chat.kick_member(user_id)  
@@ -253,7 +253,7 @@ def banme(bot: Bot, update: Update):
 def kickme(bot: Bot, update: Update):
     user_id = update.effective_message.from_user.id
     if is_user_admin(update.effective_chat, user_id):
-        update.effective_message.reply_text("I wish I could... but you're an admin.")
+        update.effective_message.reply_text("ആഹ്.. എനിക്ക് ആഗ്രഹം ഒക്കെ ഉണ്ട് but നീ ഒരു അഡ്മിൻ അല്ലെ!.")
         return
 
     res = update.effective_chat.unban_member(user_id)  # unban on current user = kick
@@ -282,21 +282,21 @@ def unban(bot: Bot, update: Update, args: List[str]) -> str:
         member = chat.get_member(user_id)
     except BadRequest as excp:
         if excp.message == "User not found":
-            message.reply_text("I can't seem to find this user")
+            message.reply_text("ആ ചെങ്ങായി ഇവിടെ ഉള്ളത് തന്നെ ആണോ? എനിക്ക് കാണാനില്ലല്ലോ user not found!😔")
             return ""
         else:
             raise
 
     if user_id == bot.id:
-        message.reply_text("How would I unban myself if I wasn't here...?")
+        message.reply_text("ഞാൻ ഇവിടെ ഇല്ലെങ്കിൽ എനിക്ക് എന്നെ എങ്ങനെ unban ചെയ്യാൻ പറ്റും😌...?")
         return ""
 
     if is_user_in_chat(chat, user_id):
-        message.reply_text("Why are you trying to unban someone that's already in the chat?")
+        message.reply_text("അറിയാൻ മേലത്തോണ്ടു ചോദിക്കുവാ ഈ ചാറ്റിൽ ഉള്ള ആളെ തന്നെ unban ചെയ്യാൻ നിങ്ങൾ എന്തിനാ ശ്രമിക്കുന്നെ..?")
         return ""
 
     chat.unban_member(user_id)
-    message.reply_text("Yep, this user can join!")
+    message.reply_text("ആഹ്... ഇനി ആ ചെങ്ങായിക്കു ഇവിടെ കയറാം!")
 
     log = "<b>{}:</b>" \
           "\n#UNBANNED" \
