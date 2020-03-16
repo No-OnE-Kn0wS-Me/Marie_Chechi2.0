@@ -18,7 +18,7 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-ഹായ് {}, എന്റെ പേര് {}! എന്നെ ടെലിഗ്രാം ഗ്രൂപ്പുകൾ മാനേജ് ചെയ്യാൻ വേണ്ടിയാണ് ഉണ്ടാക്കിയത്.
+ഹായ് {}, എന്റെ പേര് {}! എന്നെ ടെലിഗ്രാം ഗ്രൂപ്പുകൾ മാനേജ് ചെയ്യാൻ വേണ്ടി ഉണ്ടാക്കിയതാണ്.
 
 
 എന്നെ ഈ വിധത്തിൽ ആക്കി എടുത്തത് ഈ [കുരിപ്പാണ്](https://t.me/tHe_GaMeR_B0Y). എന്നെ ഇപ്പോൾ നോക്കി നടത്തുന്നത്  [ഇദ്ദേഹം](tg://user?id={}) ആണ് . 
