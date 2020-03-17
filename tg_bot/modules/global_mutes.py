@@ -25,7 +25,7 @@ def gmute(bot: Bot, update: Update, args: List[str]):
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("You don't seem to be referring to a user.")
+        message.reply_text("നിങ്ങൾ ഒരു യൂസേറിനെ റെഫർ ചെയ്യുന്നതായി തോന്നുന്നില്ല.")
         return
 
     if int(user_id) in SUDO_USERS:
@@ -37,7 +37,7 @@ def gmute(bot: Bot, update: Update, args: List[str]):
         return
 
     if user_id == bot.id:
-        message.reply_text("-_- So funny, lets gmute myself why don't I? Nice try.")
+        message.reply_text("-_- ആഹ് നല്ല കോമഡി😂 നിനക്കു ഞാൻ മിണ്ടുന്നത് കൊണ്ടെന്താ കൊഴപ്പം?.")
         return
 
     try:
@@ -47,12 +47,12 @@ def gmute(bot: Bot, update: Update, args: List[str]):
         return
 
     if user_chat.type != 'private':
-        message.reply_text("That's not a user!")
+        message.reply_text("അതൊരു യൂസർ അല്ല !")
         return
 
     if sql.is_user_gmuted(user_id):
         if not reason:
-            message.reply_text("This user is already gmuted; I'd change the reason, but you haven't given me one...")
+            message.reply_text("ഈ യൂസേറിനെ മുന്നേ തന്നെ gmute ചെയ്തതാണ്; ഞാൻ വേണേൽ gmute ചെയ്യാനുള്ള കാരണം മാറ്റാം, പക്ഷേ നിങ്ങൾ ഒരു കാരണവും തന്നിട്ടില്ലല്ലോ...")
             return
 
         success = sql.update_gmute_reason(user_id, user_chat.username or user_chat.first_name, reason)
