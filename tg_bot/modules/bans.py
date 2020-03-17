@@ -29,7 +29,7 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
     user_id, reason = extract_user_and_text(message, args)
 
     if not user_id:
-        message.reply_text("ആരേലും ഒരാളെ സൂചിപ്പിച്ചാൽ അല്ലെ എനിക്ക് ബൺ കൊടുക്കാൻ കഴിയൂ...")
+        message.reply_text("ആരേലും ഒരാളെ സൂചിപ്പിച്ചാൽ അല്ലെ എനിക്ക് ബണ്ണ് കൊടുക്കാൻ കഴിയൂ...")
         return ""
 
     try:
@@ -42,11 +42,11 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_ban_protected(chat, user_id, member):
-        message.reply_text("എനിക്ക് അഡ്മിൻസിന് ബൺ കൊടുക്കാൻ പറ്റൂല😔...")
+        message.reply_text("എനിക്ക് അഡ്മിൻസിന് ബണ്ണ് കൊടുക്കാൻ പറ്റൂല😔...")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("ഞാൻ എന്നെത്തന്നെ ബാൻ ചെയ്യാനോ നടക്കുന്ന കാര്യം വല്ലതും പറ😂... ")
+        message.reply_text("ഞാൻ എന്നെത്തന്നെ ബാൻ ചെയ്യാനോ... നടക്കുന്ന കാര്യം വല്ലതും പറ😂... ")
         return ""
 
     log = "<b>{}:</b>" \
@@ -56,7 +56,7 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
           "\n<b>• ID:</b> <code>{}</code>".format(html.escape(chat.title), mention_html(user.id, user.first_name), 
                                                   mention_html(member.user.id, member.user.first_name), user_id)
 
-    reply = "{} ന് ബൺ കൊടുത്ത്‌വിട്ടിട്ടുണ്ട്.." .format(mention_html(member.user.id, member.user.first_name))
+    reply = "{} ന് ബണ്ണ് കൊടുത്ത്‌വിട്ടിട്ടുണ്ട്.." .format(mention_html(member.user.id, member.user.first_name))
     if reason:
         log += "\n<b>• Reason:</b> {}".format(reason)
         reply += "\n<b>Reason:</b> <i>{}</i>".format(reason)
@@ -71,13 +71,13 @@ def ban(bot: Bot, update: Update, args: List[str]) -> str:
     except BadRequest as excp:
         if excp.message == "Reply message not found":
             # Do not reply
-            message.reply_text('ബൺ കൊടുത്തിട്ടുണ്ട്...!', quote=False)
+            message.reply_text('ബണ്ണ് കൊടുത്തിട്ടുണ്ട്...!', quote=False)
             return log
         else:
             LOGGER.warning(update)
             LOGGER.exception("ERROR banning user %s in chat %s (%s) due to %s", user_id, chat.title, chat.id,
                              excp.message)
-            message.reply_text("എനിക്കയാൾക്കു ബൺ കൊടുക്കാൻ സാധിക്കില്ല..")
+            message.reply_text("എനിക്കയാൾക്കു ബണ്ണ് കൊടുക്കാൻ സാധിക്കില്ല..")
 
     return ""
 
@@ -112,7 +112,7 @@ def temp_ban(bot: Bot, update: Update, args: List[str]) -> str:
         return ""
 
     if user_id == bot.id:
-        message.reply_text("എന്നെ ബാൻ ചെയ്യാനോ..😢? ഞാൻ പാവല്ലേ...എന്തായാലും ഞാൻ ബാൻ ചെയ്യൂല എനിക്ക് ബണ്ണ് വേണ്ട😔")
+        message.reply_text("എന്നെ ബാൻ ചെയ്യാനോ..😢? ഞാൻ...എന്നെ ബാൻ ചെയ്യൂല എനിക്ക് ബണ്ണ് വേണ്ടാ..😔")
         return ""
 
     if not reason:
@@ -190,11 +190,11 @@ def kick(bot: Bot, update: Update, args: List[str]) -> str:
             raise
 
     if is_user_ban_protected(chat, user_id):
-        message.reply_text("I really wish I could kick admins...")
+        message.reply_text("എനിക്കും അഡ്മിൻസിനെ പുറത്താക്കാൻ ആഗ്രഹം ഉണ്ട് പക്ഷെ നടകൂല😌...")
         return ""
 
     if user_id == bot.id:
-        message.reply_text("Yeahhh I'm not gonna do that")
+        message.reply_text("ആഹ്.. പറ്റില്ലാന്നു പറഞ്ഞാ.. പാറ്റൂല")
         return ""
 
     res = chat.unban_member(user_id)  # unban on current user = kick
@@ -236,7 +236,7 @@ def banme(bot: Bot, update: Update):
 
     res = update.effective_chat.kick_member(user_id)  
     if res:
-        update.effective_message.reply_text("No problem, banned.")
+        update.effective_message.reply_text("അതിനെന്താ.., ബണ്ണ് കൊടുത്തിട്ടുണ്ട്.")
         log = "<b>{}:</b>" \
               "\n#BANME" \
               "\n<b>User:</b> {}" \
@@ -245,7 +245,7 @@ def banme(bot: Bot, update: Update):
         return log
     
     else:
-        update.effective_message.reply_text("Huh? I can't :/")
+        update.effective_message.reply_text("എന്തോന്ന്? എന്നെ കൊണ്ടൊന്നും പറ്റൂല :/")
         
 @run_async
 @bot_admin
