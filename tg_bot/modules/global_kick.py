@@ -38,22 +38,22 @@ def gkick(bot: Bot, update: Update, args: List[str]):
         if excp.message in GKICK_ERRORS:
             pass
         else:
-            message.reply_text("User cannot be Globally kicked because: {}".format(excp.message))
+            message.reply_text("ഈ യൂസേറിനെ gkick ചെയ്യാൻ കഴിയില്ല കാരണം: {}".format(excp.message))
             return
     except TelegramError:
             pass
 
     if not user_id:
-        message.reply_text("You do not seems to be referring to a user")
+        message.reply_text("നിങ്ങൾ ഒരു യൂസേറിനെ കാണിക്കുന്നതായി തോന്നുന്നില്ല")
         return
     if int(user_id) in SUDO_USERS or int(user_id) in SUPPORT_USERS:
         message.reply_text("OHHH! Someone's trying to gkick a sudo/support user! *Grabs popcorn*")
         return
     if int(user_id) == OWNER_ID:
-        message.reply_text("Wow! Someone's so noob that he want to gkick my owner! *Grabs Potato Chips*")
+        message.reply_text("Wow!ആഹാ.. ആഹാ..😂 നിനക്ക് എന്റെ ownerനെ തന്നെ gkick ചെയ്യണം അല്ലെ.. അതും ഞാൻ...😂")
         return
     if int(user_id) == bot.id:
-        message.reply_text("OHH... Let me kick myself.. No way... ")
+        message.reply_text("OHH...എനിക്ക് ആ യൂസേറിനെ gkick കൊടുക്കാൻ പറ്റില്ല... കാരണം ആഹ് യൂസർ ഒരു നല്ല മനസിന്റെ ഉടമയാണ്😍.😋.... ")
         return
     chats = get_all_chats()
     message.reply_text("Globally kicking user @{}".format(user_chat.username))
