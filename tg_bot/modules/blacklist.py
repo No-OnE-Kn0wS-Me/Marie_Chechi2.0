@@ -63,7 +63,7 @@ def add_blacklist(bot: Bot, update: Update):
                 "Added <code>{}</code> triggers to the blacklist.".format(len(to_blacklist)), parse_mode=ParseMode.HTML)
 
     else:
-        msg.reply_text("Tell me which words you would like to remove from the blacklist.")
+        msg.reply_text("ആഹ്..നിങ്ങൾക്ക് ഏത് വാക്കാണ് black ലിസ്റ്റിൽ നിന്നും ഒഴിവാക്കേണ്ടത്?.")
 
 
 @run_async
@@ -104,7 +104,7 @@ def unblacklist(bot: Bot, update: Update):
                 "so were not removed.".format(successful, len(to_unblacklist) - successful),
                 parse_mode=ParseMode.HTML)
     else:
-        msg.reply_text("Tell me which words you would like to remove from the blacklist.")
+        msg.reply_text("ആഹ്..നിങ്ങൾക്ക് ഏത് വാക്കാണ് black ലിസ്റ്റിൽ നിന്നും ഒഴിവാക്കേണ്ടത്.")
 
 
 @run_async
