@@ -78,10 +78,10 @@ if is_module_loaded(FILENAME):
                 update.effective_message.reply_text("Disabled the use of `{}`".format(disable_cmd),
                                                     parse_mode=ParseMode.MARKDOWN)
             else:
-                update.effective_message.reply_text("That command can't be disabled")
+                update.effective_message.reply_text("ഈ കമാൻഡിനെ ഒഴിവാക്കാൻ കഴിയില്ല")
 
         else:
-            update.effective_message.reply_text("What should I disable?")
+            update.effective_message.reply_text("ഞാൻ എന്താണ് ഒഴിവാക്കേണ്ടത്?")
 
 
     @run_async
@@ -97,10 +97,10 @@ if is_module_loaded(FILENAME):
                 update.effective_message.reply_text("Enabled the use of `{}`".format(enable_cmd),
                                                     parse_mode=ParseMode.MARKDOWN)
             else:
-                update.effective_message.reply_text("Is that even disabled?")
+                update.effective_message.reply_text("അതിനാരാ അത് disable ആക്കിയെ?")
 
         else:
-            update.effective_message.reply_text("What should I enable?")
+            update.effective_message.reply_text("ഞാൻ എന്താണ് enable അക്കേണ്ടത്?")
 
 
     @run_async
@@ -113,7 +113,7 @@ if is_module_loaded(FILENAME):
             update.effective_message.reply_text("The following commands are toggleable:\n{}".format(result),
                                                 parse_mode=ParseMode.MARKDOWN)
         else:
-            update.effective_message.reply_text("No commands can be disabled.")
+            update.effective_message.reply_text("ഒരു കമാൻഡും ഒഴിവാക്കാൻ കഴിയുന്നതല്ല.")
 
 
     # do not async
