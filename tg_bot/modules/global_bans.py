@@ -91,7 +91,7 @@ def gban(bot: Bot, update: Update, args: List[str]):
 
         return
 
-    message.reply_text("⚡️ *Snaps the Banhammer* ⚡️")
+    message.reply_text("💥സ്പാം ചെയ്യുന്നവരൊക്കെ ഇവന്റെ പിന്നാലെ ഓടിക്കോളിം💥..")
 
     banner = update.effective_user  # type: Optional[User]
     send_to_list(bot, SUDO_USERS + SUPPORT_USERS,
@@ -146,11 +146,11 @@ def ungban(bot: Bot, update: Update, args: List[str]):
 
     user_chat = bot.get_chat(user_id)
     if user_chat.type != 'private':
-        message.reply_text("That's not a user!")
+        message.reply_text("അതൊരു user അല്ല!")
         return
 
     if not sql.is_user_gbanned(user_id):
-        message.reply_text("This user is not gbanned!")
+        message.reply_text("ഈ യൂസേറിനെ ആരും gban ചെയ്തിട്ടില്ല!")
         return
 
     banner = update.effective_user  # type: Optional[User]
@@ -206,7 +206,7 @@ def gbanlist(bot: Bot, update: Update):
     banned_users = sql.get_gban_list()
 
     if not banned_users:
-        update.effective_message.reply_text("There aren't any gbanned users! You're kinder than I expected...")
+        update.effective_message.reply_text("ഇവിടെ gban കിട്ടിയ ആരും ഇല്ല.. you are kinder than i expected 😊...")
         return
 
     banfile = 'Screw these guys.\n'
@@ -225,7 +225,7 @@ def check_and_ban(update, user_id, should_message=True):
     if sql.is_user_gbanned(user_id):
         update.effective_chat.kick_member(user_id)
         if should_message:
-            update.effective_message.reply_text("This is a bad person, they shouldn't be here!")
+            update.effective_message.reply_text("ഈ യൂസർ അത്ര നല്ല ആളൊന്നുമല്ല,അവനെ ഒഴിവാക്കുന്നതാണ് നല്ലത്!")
 
 
 @run_async
