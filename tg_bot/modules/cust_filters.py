@@ -173,16 +173,16 @@ def stop_filter(bot: Bot, update: Update):
     chat_filters = sql.get_chat_triggers(chat_id)
 
     if not chat_filters:
-        update.effective_message.reply_text("No filters are active here!")
+        update.effective_message.reply_text("ഇവിടെ ഒരു ഫിൽറ്ററും ആക്റ്റീവ് അല്ല!")
         return
 
     for keyword in chat_filters:
         if keyword == args[1]:
             sql.remove_filter(chat_id, args[1])
-            update.effective_message.reply_text("Yep, I'll stop replying to that in *{}*.".format(chat_name), parse_mode=telegram.ParseMode.MARKDOWN)
+            update.effective_message.reply_text("ആഹ്.. ഞാൻ ഇനി ആ വാക്കു ആരു പറഞ്ഞാലും മിണ്ടാതിരുന്നോളാം😌 *{}*.".format(chat_name), parse_mode=telegram.ParseMode.MARKDOWN)
             raise DispatcherHandlerStop
 
-    update.effective_message.reply_text("That's not a current filter - run /filters for all active filters.")
+    update.effective_message.reply_text("അത് ഇപ്പോൾ ഒരു filter അല്ല - run /filters for all active filters.")
 
 
 @run_async
