@@ -91,7 +91,7 @@ def can_restrict(func):
             return func(bot, update, *args, **kwargs)
         else:
             update.effective_message.reply_text("എനിക്ക് ഈ ചാറ്റിൽ ആരെയും നിയന്ത്രിക്കാൻ കഴിയില്ല! "
-                                                "ഞാൻ അഡ്മിൻ ആണെന്നും മറ്റുള്ളവരെ പ്രൊമോട്ട് ചെയ്യാമെന്നും നോക്കി ഉറപ്പു വരുത്തുക.")
+                                                "ഞാൻ അഡ്മിൻ ആണെന്നും മറ്റുള്ളവരെ നിയന്ത്രിക്കാൻ പറ്റുമോ എന്നും നോക്കി ഉറപ്പു വരുത്തുക.")
 
     return promote_rights
 
@@ -121,7 +121,7 @@ def user_admin(func):
             update.effective_message.delete()
 
         else:
-            update.effective_message.reply_text("എന്നോട് ഇതൊക്കെ പറയാൻ നീ ആരാ..?")
+            update.effective_message.reply_text("എന്നോട് ഇതൊക്കെ പറയാൻ നീ ആരാ..?അഡ്മിന് മാത്രേ ഈ കമാൻഡ് യൂസ് ചെയ്യാൻ പറ്റു.. മിസ്റ്റർ!")
 
     return is_admin
 
