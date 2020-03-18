@@ -133,7 +133,7 @@ def new_member(bot: Bot, update: Update):
         for new_mem in new_members:
             # Give the owner a special welcome
             if new_mem.id == OWNER_ID:
-                update.effective_message.reply_text("Master is in the houseeee, let's get this party started!")
+                update.effective_message.reply_text("എന്റെ മുതലാളി ഇവിടെ എത്തിയിട്ടുണ്ട്!ഇനി നമുക്ക് പൊളിക്കാം😍")
                 continue
 
             # Don't welcome yourself
@@ -201,7 +201,7 @@ def left_member(bot: Bot, update: Update):
 
             # Give the owner a special goodbye
             if left_mem.id == OWNER_ID:
-                update.effective_message.reply_text("RIP Master")
+                update.effective_message.reply_text("എന്നെ ഒറ്റക്കാക്കി പോയി അല്ലെ, RIP master😔")
                 return
 
             # if media goodbye, use appropriate function for it
@@ -275,15 +275,15 @@ def welcome(bot: Bot, update: Update, args: List[str]):
     elif len(args) >= 1:
         if args[0].lower() in ("on", "yes"):
             sql.set_welc_preference(str(chat.id), True)
-            update.effective_message.reply_text("I'll be polite!")
+            update.effective_message.reply_text("ഞാൻ ഇനി വരുന്നവരെ ഒക്കെ നല്ല രീതിയിൽ  സൽക്കരിച്ചോളാം😊!")
 
         elif args[0].lower() in ("off", "no"):
             sql.set_welc_preference(str(chat.id), False)
-            update.effective_message.reply_text("I'm sulking, not saying hello anymore.")
+            update.effective_message.reply_text("ഞാൻ ഇനി വരുന്നവരോട് ഒന്നും പറയാൻ പോണില്ല😌.")
 
         else:
             # idek what you're writing, say yes or no
-            update.effective_message.reply_text("I understand 'on/yes' or 'off/no' only!")
+            update.effective_message.reply_text("എനിക്ക് 'on/yes' എല്ലെങ്കിൽ 'off/no'മാത്രമേ മനസിലാവൊള്ളൂ😌!")
 
 
 @run_async
@@ -321,15 +321,15 @@ def goodbye(bot: Bot, update: Update, args: List[str]):
     elif len(args) >= 1:
         if args[0].lower() in ("on", "yes"):
             sql.set_gdbye_preference(str(chat.id), True)
-            update.effective_message.reply_text("I'll be sorry when people leave!")
+            update.effective_message.reply_text("ആഹ് പോകുന്നവരോടൊക്കെ ഞാൻ ക്ഷമിക്കാൻ ശ്രമിക്കാം😏!")
 
         elif args[0].lower() in ("off", "no"):
             sql.set_gdbye_preference(str(chat.id), False)
-            update.effective_message.reply_text("They leave, they're dead to me.")
+            update.effective_message.reply_text("പോകുന്നോരൊക്കെ പോട്ടെന്നേയ്...")
 
         else:
             # idek what you're writing, say yes or no
-            update.effective_message.reply_text("I understand 'on/yes' or 'off/no' only!")
+            update.effective_message.reply_text("എനിക്ക്'on/yes' എല്ലെങ്കിൽ 'off/no' മാത്രേ മനസിലാകു!")
 
 
 @run_async
