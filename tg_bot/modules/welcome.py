@@ -325,7 +325,7 @@ def goodbye(bot: Bot, update: Update, args: List[str]):
 
         elif args[0].lower() in ("off", "no"):
             sql.set_gdbye_preference(str(chat.id), False)
-            update.effective_message.reply_text("പോകുന്നോരൊക്കെ പോട്ടെന്നേയ്...")
+            update.effective_message.reply_text("പോകുന്നോരൊക്കെ പോട്ടെന്നേയ്..അവരോടു ഞാൻ ഒന്നും പറയാൻ പോണില്ല.")
 
         else:
             # idek what you're writing, say yes or no
@@ -363,7 +363,7 @@ def reset_welcome(bot: Bot, update: Update) -> str:
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
     sql.set_custom_welcome(chat.id, sql.DEFAULT_WELCOME, sql.Types.TEXT)
-    update.effective_message.reply_text("Successfully reset welcome message to default!")
+    update.effective_message.reply_text("welcome message പഴയതിലോട്ടു മാറ്റിയിട്ടുണ്ട്!")
     return "<b>{}:</b>" \
            "\n#RESET_WELCOME" \
            "\n<b>Admin:</b> {}" \
@@ -385,7 +385,7 @@ def set_goodbye(bot: Bot, update: Update) -> str:
         return ""
 
     sql.set_custom_gdbye(chat.id, content or text, data_type, buttons)
-    msg.reply_text("Successfully set custom goodbye message!")
+    msg.reply_text("custom goodbye മെസ്സേജ് സെറ്റ് ചെയ്തിട്ടുണ്ട്!")
     return "<b>{}:</b>" \
            "\n#SET_GOODBYE" \
            "\n<b>Admin:</b> {}" \
@@ -400,7 +400,7 @@ def reset_goodbye(bot: Bot, update: Update) -> str:
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
     sql.set_custom_gdbye(chat.id, sql.DEFAULT_GOODBYE, sql.Types.TEXT)
-    update.effective_message.reply_text("Successfully reset goodbye message to default!")
+    update.effective_message.reply_text("goodbye message പഴയതിലോട്ടു മാറ്റിയിട്ടുണ്ട്!")
     return "<b>{}:</b>" \
            "\n#RESET_GOODBYE" \
            "\n<b>Admin:</b> {}" \
@@ -418,9 +418,9 @@ def clean_welcome(bot: Bot, update: Update, args: List[str]) -> str:
     if not args:
         clean_pref = sql.get_clean_pref(chat.id)
         if clean_pref:
-            update.effective_message.reply_text("I should be deleting welcome messages up to two days old.")
+            update.effective_message.reply_text("2 ദിവസം പഴക്കമുള്ള welcome മെസ്സേജുകൾ ഒക്കെ ഞാൻ delete ആക്കണം.")
         else:
-            update.effective_message.reply_text("I'm currently not deleting old welcome messages!")
+            update.effective_message.reply_text("ഞാൻ ഇപ്പോൾ പഴയ welcome മെസ്സേജുകൾ ഒന്നും ഡിലീറ്റ് ചെയ്യാറില്ല!")
         return ""
 
     if args[0].lower() in ("on", "yes"):
@@ -433,7 +433,7 @@ def clean_welcome(bot: Bot, update: Update, args: List[str]) -> str:
                                                                          mention_html(user.id, user.first_name))
     elif args[0].lower() in ("off", "no"):
         sql.set_clean_welcome(str(chat.id), False)
-        update.effective_message.reply_text("I won't delete old welcome messages.")
+        update.effective_message.reply_text("ഞാൻ പഴയ welcome മെസ്സേജുകൾ ഡിലീറ്റ് ചെയ്യില്ല.")
         return "<b>{}:</b>" \
                "\n#CLEAN_WELCOME" \
                "\n<b>Admin:</b> {}" \
@@ -441,7 +441,7 @@ def clean_welcome(bot: Bot, update: Update, args: List[str]) -> str:
                                                                           mention_html(user.id, user.first_name))
     else:
         # idek what you're writing, say yes or no
-        update.effective_message.reply_text("I understand 'on/yes' or 'off/no' only!")
+        update.effective_message.reply_text("എനിക്ക് 'on/yes' എല്ലെങ്കിൽ 'off/no'മാത്രമേ മനസിലാകൂ!")
         return ""
 
 
