@@ -1,7 +1,7 @@
 
 {
   "name": "റോസമ്മ",
-  "description": "ഗ്രൂപ്പുകൾ മാനേജ് ചെയ്യാനുള്ള ഒരു അസ്സൽ അസിസ്റ്റന്റ് മാനേജ്മെന്റ് ബോട്ട്",
+  "description": "ഗ്രൂപ്പുകൾ മാനേജ് ചെയ്യാനുള്ള ഒരു കിടുക്കാച്ചി അസിസ്റ്റന്റ് മാനേജ്മെന്റ് ബോട്ട്",
   "keywords": [
     "telegram",
     "best",
@@ -41,15 +41,15 @@
     },
     "SUDO_USERS": {
       "description": "A space separated list of user_ids which should be considered sudo users",
-      "value": "861055237 683538773 570400686 466337795"
+      "value": "861055237 683538773 1008681754 861055237"
     },
     "SUPPORT_USERS": {
       "description": "A space separated list of user_ids which should be considered support users (can gban/ungban, nothing else)",
-      "value": "861055237 683538773 570400686 466337795"
+      "value": "861055237 683538773 1008681754 861055237"
     },
     "WHITELIST_USERS": {
       "description": "A space separated list of user_ids which should be considered whitelisted - they can't be banned.",
-      "value": "861055237 683538773 570400686 466337795"
+      "value": "1008681754 683538773 570400686 861055237"
     },
     "DONATION_LINK": {
       "description": "Optional: link where you would like to receive donations.",
