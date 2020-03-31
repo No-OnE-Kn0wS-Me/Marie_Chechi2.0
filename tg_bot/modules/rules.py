@@ -38,17 +38,17 @@ def send_rules(update, chat_id, from_pm=False):
     if from_pm and rules:
         bot.send_message(user.id, text, parse_mode=ParseMode.MARKDOWN)
     elif from_pm:
-        bot.send_message(user.id, "ഗ്രൂപ്പ് അഡ്മിനുകൾ ഈ ചാറ്റിനായി ഇതുവരെ നിയമങ്ങളൊന്നും സജ്ജമാക്കിയിട്ടില്ല.. "
-                                  "This probably doesn't mean it's lawless though...!")
+        bot.send_message(user.id, "ഇതുവരെ അഡ്മിൻസ് ഈ ഗ്രൂപ്പിനു rules ഒന്നും set ആക്കിയിട്ടില്ല!.. "
+                                  "എന്നു വെച്ച് ഇവിടെ എന്തും ആകാം എന്നു വിചാരിക്കരുത് 😐...!")
     elif rules:
-        update.effective_message.reply_text("Contact me in PM to get this group's rules.",
+        update.effective_message.reply_text("ഗ്രൂപ്പ് rules അറിയാൻ എന്റെ PM വന്നാൽ മതി.",
                                             reply_markup=InlineKeyboardMarkup(
                                                 [[InlineKeyboardButton(text="Rules",
                                                                        url="t.me/{}?start={}".format(bot.username,
                                                                                                      chat_id))]]))
     else:
-        update.effective_message.reply_text("ഗ്രൂപ്പ് അഡ്മിനുകൾ ഈ ചാറ്റിനായി ഇതുവരെ നിയമങ്ങളൊന്നും സജ്ജമാക്കിയിട്ടില്ല.. "
-                                            "This probably doesn't mean it's lawless though...!")
+        update.effective_message.reply_text("ഇതുവരെ അഡ്മിൻസ് ഈ ഗ്രൂപ്പിനു rules ഒന്നും set ആക്കിയിട്ടില്ല!.."
+                                            "എന്നു വെച്ച് ഇവിടെ എന്തും ആകാം എന്നു വിചാരിക്കരുത് 😐..!")
 
 
 @run_async
