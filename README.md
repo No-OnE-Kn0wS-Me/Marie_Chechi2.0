@@ -1,13 +1,5 @@
 
 
-# tgbot
-
-
-
-എന്റെ പേര് മാത്രേ മറ്റാമോള്ളൂ ഞാനും മേരി ചേച്ചിയെ പോലെ തന്നെ ഒരു ultimate ബോട്ട് ആണ്
-
-Alternatively, [find me on telegram](https://t.me/tHe_GaMeR_B0Y)! (ബോട്ടിനെ കുറിച്ച് എന്തേലും അറിയാൻ ഇങ്ങോട്ടു വന്ന മതി.)
-
 ## You can also tap the Deploy To Heroku button below to deploy straight to Heroku!
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/salmanpdr/Marie_Chechi2.0)
