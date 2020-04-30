@@ -23,19 +23,13 @@ No one's gonna help you!
 """
 
 HELP_STRINGS = """
-നമസ്കാരം ! എന്റെ പേര് *{}*.
-ഞാൻ [ഇദ്ദേഹം](https://t.me/tHe_GaMeR_B0Y) ഉണ്ടാക്കിയ ഒരു ഗ്രൂപ്പ് മാനേജ്മെന്റ് ബോട്ട് ആണ്.
-
-*Main* ലഭ്യമായ commandകൾ:
- - /start: എന്നെ on ചെയ്യണേൽ ഇതു ക്ലിക്ക് ചെയ്യണം😋...
- - /help: ഇപ്പോൾ വന്ന മെസ്സേജ് വരാൻ 😛....
- - /donate: donation നെ കുറിച്ച് അറിയാൻ
- 
+Welcome! My name is *{}*.
+I'm a group management bot forked by [Him](https://t.me/No_OnE_Kn0wS_Me).
 {}
-And the following:
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nഈ പറഞ്ഞിരിക്കുന്ന commandകൾ എല്ലാം  / അല്ലെങ്കിൽ ! വെച്ച് ഉപയോഗിക്കാവുന്നതാണ്...\n")
+the following are the available commands:
+""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\n Commands can be used with /,!\n")
 
-DONATE_STRING = """ഡോനേഷൻ ഒന്നും വേണ്ട പറ്റുമെങ്കിൽ സപ്പോർട്ട് my [മൂവി ഗ്രൂപ്പ്](https://t.me/movielinks_only) ."""
+DONATE_STRING = """All the donations goes to [him](https://t.me/SonOfLars)."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -127,7 +121,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN)
     else:
-        update.effective_message.reply_text("ഹായ് മച്ചാൻ,  എന്താണ് 😊??")
+        update.effective_message.reply_text("I'm Alive <3")
 
 
 # for test purposes
@@ -356,8 +350,8 @@ def donate(bot: Bot, update: Update):
     if chat.type == "private":
         update.effective_message.reply_text(DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
-        if OWNER_ID != 254318997 and DONATION_LINK:
-            update.effective_message.reply_text("വേണമെങ്കിൽ എന്നെ ഇപ്പോൾ നോക്കുന്ന മച്ചാന് donate ചെയ്തോ.."
+        if OWNER_ID != 861055237 and DONATION_LINK:
+            update.effective_message.reply_text("You can also donate to me.."
                                                 "[here]({})".format(DONATION_LINK),
                                                 parse_mode=ParseMode.MARKDOWN)
 
