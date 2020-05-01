@@ -24,7 +24,7 @@ No one's gonna help you!
 
 HELP_STRINGS = """
 Welcome! My name is *{}*.
-I'm a group management bot forked by [No One](https://t.me/No_OnE_Kn0wS_Me).
+I'm a group management bot forked by [No One](https://t.me/Dia_gWri).
 {}
 the following are the available commands:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else " ")
