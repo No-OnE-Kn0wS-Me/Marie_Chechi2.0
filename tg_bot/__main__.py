@@ -18,13 +18,13 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-No one's gonna help you!
+A group management bot by @Mai_bOTs. 
 
 """
 
 HELP_STRINGS = """
 Welcome! My name is *{}*.
-I'm a group management bot forked by [No One](https://t.me/No_OnE_Kn0wS_Me).
+I'm a group management bot created by [No One](https://t.me/Mai_bOTs).
 {}
 the following are the available commands:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else " ")
