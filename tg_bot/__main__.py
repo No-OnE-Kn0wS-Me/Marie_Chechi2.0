@@ -29,7 +29,7 @@ I'm a group management bot created by [No One](https://t.me/Mai_bOTs).
 the following are the available commands:
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else " ")
 
-DONATE_STRING = """All the donations goes to [him](https://t.me/SonOfLars) for creating a bot like this. \n you can also help me by supporting my [movie](https://t.me/movielinks_only) group"""
+DONATE_STRING = """All the donations goes to [him](https://t.me/SonOfLars) for creating a bot like this. \n you can also help me by supporting my [bot](https://t.me/Mai_bOTs) Channel"""
 
 IMPORTED = {}
 MIGRATEABLE = []
