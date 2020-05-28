@@ -18,7 +18,7 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-A group management bot by @Mai_bOTs. 
+A [Group management bot](https://t.me/Mai_bOTs) for managing groups. 
 
 """
 
