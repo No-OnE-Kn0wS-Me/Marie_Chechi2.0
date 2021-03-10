@@ -18,7 +18,7 @@ from tg_bot.modules import ALL_MODULES
 from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
-DEVIL_IMG=START_PHOTTO
+DEVIL_IMG=Config.START_PHOTTO
 
 PM_START_TEXT = """
 Hello {},My Name is {} !. 
