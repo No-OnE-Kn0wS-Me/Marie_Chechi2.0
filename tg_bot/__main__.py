@@ -8,16 +8,15 @@ from telegram.error import Unauthorized, BadRequest, TimedOut, NetworkError, Cha
 from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler
 from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
-from sample_config import START_PHOTTO, OWNER_NAME, OWNER_USERNAME 
-from tg_bot import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER
-from tg_bot import ALLOW_EXCL
+from tg_bot import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, \
+    ALLOW_EXCL, START_PHOTTO, OWNER_NAME, OWNER_USERNAME 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from tg_bot.modules import ALL_MODULES
 from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
-DEVIL_IMG = START_PHOTTO
+DEVIL_IMG=START_PHOTTO
 
 PM_START_TEXT = """
 Hello {},My Name is {} !. 
