@@ -79,6 +79,19 @@ for module_name in ALL_MODULES:
     if hasattr(imported_module, "__user_settings__"):
         USER_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
 
+@run_async
+def kcfrsct_fnc(bot: Bot, update: Update):
+    query = update.callback_query
+    user = update.effective_user
+    _match = re.match(r"rsct_(.*)_33801", query.data)
+    # ensure no spinny white circle
+    bot.answer_callback_query(query.id)
+    if _match:
+        try:
+            _soqka = sql.get_btn_with_di(int(_match.group(1)))
+            print(_soqka.url)
+        except:
+            pass
 
 # do not async
 def send_help(chat_id, text, keyboard=None):
@@ -409,6 +422,9 @@ def main():
     dispatcher.add_handler(settings_callback_handler)
     dispatcher.add_handler(migrate_handler)
     dispatcher.add_handler(donate_handler)
+    dispatcher.add_handler(
+        CallbackQueryHandler(kcfrsct_fnc, pattern=r"")
+    )
 
     # dispatcher.add_error_handler(error_callback)
 
