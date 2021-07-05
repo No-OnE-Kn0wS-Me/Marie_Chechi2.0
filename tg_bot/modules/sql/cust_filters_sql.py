@@ -68,6 +68,14 @@ CUST_FILT_LOCK = threading.RLock()
 BUTTON_LOCK = threading.RLock()
 CHAT_FILTERS = {}
 
+def get_btn_with_di(ntb_gtid):
+    try:
+        return SESSION.query(Buttons).filter(
+            Buttons.id == ntb_gtid
+        ).one()
+    finally:
+        SESSION.close()
+
 
 def get_all_filters():
     try:

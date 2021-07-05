@@ -8,28 +8,30 @@ from telegram.error import Unauthorized, BadRequest, TimedOut, NetworkError, Cha
 from telegram.ext import CommandHandler, Filters, MessageHandler, CallbackQueryHandler
 from telegram.ext.dispatcher import run_async, DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
-
 from tg_bot import dispatcher, updater, TOKEN, WEBHOOK, OWNER_ID, DONATION_LINK, CERT_PATH, PORT, URL, LOGGER, \
-    ALLOW_EXCL
+    ALLOW_EXCL, START_PHOTTO, OWNER_NAME, OWNER_USERNAME 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
 from tg_bot.modules import ALL_MODULES
 from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
-PM_START_TEXT = """
-No one's gonna help you!
+DEVIL_IMG=START_PHOTTO
 
+PM_START_TEXT = """
+Hello {},My Name is {} !. 
+I'm an Group Management Bot Maintained By [{}](https://t.me/{}). 
 """
 
 HELP_STRINGS = """
 Welcome! My name is *{}*.
-I'm a group management bot forked by [No One](https://t.me/No_OnE_Kn0wS_Me).
+I'm a group management bot created by [No One](https://t.me/Mai_bOTs).
+
 {}
 the following are the available commands:
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else " ")
+""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "nothing")
 
-DONATE_STRING = """All the donations goes to [him](https://t.me/SonOfLars) for creating a bot like this. \n you can also help me by supporting my [movie](https://t.me/movielinks_only) group"""
+DONATE_STRING = """All the donations goes to [him](https://t.me/SonOfLars) for creating a bot like this. \n you can also help me by supporting my [bot](https://t.me/Mai_bOTs) Channel"""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -77,6 +79,22 @@ for module_name in ALL_MODULES:
     if hasattr(imported_module, "__user_settings__"):
         USER_SETTINGS[imported_module.__mod_name__.lower()] = imported_module
 
+@run_async
+def kcfrsct_fnc(bot: Bot, update: Update):
+    query = update.callback_query
+    user = update.effective_user
+    _match = re.match(r"rsct_(.*)_33801", query.data)
+    # ensure no spinny white circle
+    if _match:
+        try:
+            from tg_bot.modules.sql.cust_filters_sql import get_btn_with_di
+            _soqka = get_btn_with_di(int(_match.group(1)))
+            query.answer(
+                text=_soqka.url,
+                show_alert=True
+            )
+        except:
+            bot.answer_callback_query(query.id)
 
 # do not async
 def send_help(chat_id, text, keyboard=None):
@@ -117,11 +135,14 @@ def start(bot: Bot, update: Update, args: List[str]):
 
         else:
             first_name = update.effective_user.first_name
-            update.effective_message.reply_text(
-                PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
-                parse_mode=ParseMode.MARKDOWN)
+            update.effective_message.reply_photo(DEVIL_IMG,PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_NAME, OWNER_USERNAME ),reply_markup=InlineKeyboardMarkup(
+                                                [[InlineKeyboardButton(text="📞Help",url="t.me/{}?start=help".format(bot.username)),InlineKeyboardButton(text=" 👥 channel.",url="https://telegram.dog/Mai_bOTs")],  
+                                                [InlineKeyboardButton(text="Creater",url="https://t.me/No_OnE_Kn0wS_Me"),InlineKeyboardButton(text="Group",url="https://telegram.dog/movielinks_only")]]),disable_web_page_preview=True, parse_mode=ParseMode.MARKDOWN)
     else:
-        update.effective_message.reply_text("I'm Alive <3")
+         
+
+        update.effective_message.reply_text("Heya, How can I help you? 🙂",reply_markup=InlineKeyboardMarkup(
+                                                [[InlineKeyboardButton(text="❓ Help",url="t.me/{}?start=help".format(bot.username)),InlineKeyboardButton(text=" Channel",url="https://t.me/Mai_bOTs")]]))
 
 
 # for test purposes
@@ -404,6 +425,9 @@ def main():
     dispatcher.add_handler(settings_callback_handler)
     dispatcher.add_handler(migrate_handler)
     dispatcher.add_handler(donate_handler)
+    dispatcher.add_handler(
+        CallbackQueryHandler(kcfrsct_fnc, pattern=r"")
+    )
 
     # dispatcher.add_error_handler(error_callback)
 
